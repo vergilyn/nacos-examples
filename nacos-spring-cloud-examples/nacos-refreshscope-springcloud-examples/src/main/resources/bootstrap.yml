@@ -10,3 +10,8 @@ spring:
         name: cloud-autorefresh.properties
         refresh-enabled: true
         server-addr: 127.0.0.1:8848
+
+    refresh:
+      extra-refreshable:
+        # - org.springframework.data.redis.connection.RedisConnectionFactory
+        - org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory

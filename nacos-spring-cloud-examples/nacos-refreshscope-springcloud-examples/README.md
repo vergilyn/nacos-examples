@@ -137,7 +137,7 @@ public Object get(String name, ObjectFactory<?> objectFactory) {
 
 ```
 
-4. 
+4. create-bean `LettuceConnectionFactory`
 ```
 "main@1" prio=5 tid=0x1 nid=NA runnable
   java.lang.Thread.State: RUNNABLE

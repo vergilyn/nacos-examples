@@ -7,7 +7,7 @@ import lombok.Data;
 import static com.vergilyn.examples.nacos.autorefresh.SpringbootAutoRefreshApplication.DATA_ID;
 import static com.vergilyn.examples.nacos.autorefresh.SpringbootAutoRefreshApplication.GROUP_ID;
 
-@NacosConfigurationProperties(/*prefix = "spring.redis",*/dataId = DATA_ID, groupId = GROUP_ID, autoRefreshed = true)
+@NacosConfigurationProperties(prefix = "vergilyn.custom", dataId = DATA_ID, groupId = GROUP_ID, autoRefreshed = true)
 @Data
 public class NacosCustomProperties {
 

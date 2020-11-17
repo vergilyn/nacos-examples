@@ -42,10 +42,10 @@
             <artifactId>nacos-config-spring-boot-autoconfigure</artifactId>
             <version>${nacos-spring-boot.version}</version>
         </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>com.alibaba.boot</groupId>
             <artifactId>nacos-discovery-spring-boot-autoconfigure</artifactId>
             <version>${nacos-spring-boot.version}</version>
-        </dependency>
+        </dependency>-->
     </dependencies>
 </project>

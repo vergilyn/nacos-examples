@@ -19,7 +19,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 @RequestMapping("config")
 public class ConfigController {
 
-    @NacosValue(value = "${name:null}", autoRefreshed = true)
+    @NacosValue(value = "${vergilyn.custom.name:null}", autoRefreshed = true)
     private String name;
     @Autowired
     private NacosCustomProperties nacosProperties;

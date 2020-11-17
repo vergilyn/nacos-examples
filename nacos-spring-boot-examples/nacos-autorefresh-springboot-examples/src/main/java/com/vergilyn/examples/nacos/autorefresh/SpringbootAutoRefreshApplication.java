@@ -21,8 +21,9 @@ import static com.vergilyn.examples.nacos.autorefresh.SpringbootAutoRefreshAppli
  *   data-id: boot-autorefresh.properties
  *   group: BOOT_GROUP
  *   content:
- *      name=vergilyn
- *      spring.redis.database=6
+ *      vergilyn.custom.name=vergilyn
+ *      vergilyn.custom.database=6
+ *      spring.redis.database=${vergilyn.custom.database}
  * </pre>
  */
 @SpringBootApplication
