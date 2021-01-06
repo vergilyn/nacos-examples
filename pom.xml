@@ -12,6 +12,7 @@
     <modules>
         <module>nacos-spring-boot-examples</module>
         <module>nacos-spring-cloud-examples</module>
+        <module>spring-cloud-run-twice-examples</module>
     </modules>
 
     <properties>
@@ -21,7 +22,7 @@
 
         <spring-boot-dependencies.version>2.2.2.RELEASE</spring-boot-dependencies.version>
         <projectlombok.version>1.18.10</projectlombok.version>
-        <google-guava.version>28.2-jre</google-guava.version>
+        <google-guava.version>30.0-jre</google-guava.version>
         <alibaba-fastjson.version>1.2.62</alibaba-fastjson.version>
         <apache-common-lang3.version>3.9</apache-common-lang3.version>
 

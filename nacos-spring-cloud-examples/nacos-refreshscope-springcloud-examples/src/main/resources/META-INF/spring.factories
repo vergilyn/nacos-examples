@@ -1,0 +1,6 @@
+org.springframework.context.ApplicationListener=\
+com.vergilyn.examples.nacos.autorefresh.listener.CustomApplicationReadyEventListener,\
+com.vergilyn.examples.nacos.autorefresh.listener.CustomApplicationStartingEventListener
+
+
+

@@ -1,7 +1,6 @@
 package com.vergilyn.examples.nacos.autorefresh;
 
 import com.vergilyn.examples.nacos.autorefresh.config.NacosCustomProperties;
-import com.vergilyn.examples.nacos.autorefresh.listener.RefreshScopeRefreshedEventListener;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -41,11 +40,6 @@ public class SpringCloudRefreshScopeApplication {
 	@RefreshScope
 	public NacosCustomProperties nacosCustomProperties(){
 		return new NacosCustomProperties();
-	}
-
-	@Bean
-	public RefreshScopeRefreshedEventListener refreshScopeRefreshedEventListener(){
-		return new RefreshScopeRefreshedEventListener();
 	}
 
 	public static void main(String[] args) {

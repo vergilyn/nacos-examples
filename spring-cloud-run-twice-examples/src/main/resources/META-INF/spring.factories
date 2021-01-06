@@ -1,0 +1,6 @@
+org.springframework.context.ApplicationListener=\
+com.vergilyn.examples.nacos.runtwice.listener.CustomApplicationReadyEventListener,\
+com.vergilyn.examples.nacos.runtwice.listener.CustomApplicationStartingEventListener,\
+com.vergilyn.examples.nacos.runtwice.listener.CustomDelayEventListener
+
+
