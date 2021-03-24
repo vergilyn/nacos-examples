@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.vergilyn.examples.nacos</groupId>
+        <artifactId>nacos-1x-examples</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <artifactId>nacos-spring-cloud-examples</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>nacos-autorefresh-springcloud-examples</module>
+        <module>nacos-refreshscope-springcloud-examples</module>
+    </modules>
+
+    <properties>
+        <nacos-spring-cloud.version>2.2.3.RELEASE</nacos-spring-cloud.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.alibaba.spring</groupId>
+            <artifactId>spring-context-support</artifactId>
+        </dependency>
+
+        <!-- 貌似`spring-cloud-alibaba-nacos-config`已经合并到`spring-cloud-starter-alibaba-nacos-config` -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+            <version>${nacos-spring-cloud.version}</version>
+        </dependency>
+        <!--<dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-alibaba-nacos-config</artifactId>
+            <version>2.2.0.RELEASE</version>
+        </dependency>-->
+
+    </dependencies>
+</project>

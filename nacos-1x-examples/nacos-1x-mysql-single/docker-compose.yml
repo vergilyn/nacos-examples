@@ -1,0 +1,53 @@
+version: "3.9"
+
+# SEE: https://github.com/nacos-group/nacos-docker/tree/1.3.2
+services:
+  # SEE: https://hub.docker.com/_/mysql
+  # SEE: https://github.com/docker-library/postgres
+  # SEE: https://dev.mysql.com/doc/refman/5.7/en/environment-variables.html
+  mysql:
+    image: mysql:8.0.23
+    container_name: nacos-1x-mysql-image-8.0.23
+    ports:
+      - 13306:3306
+    volumes:
+      - "D:/docker-volumes/nacos-1x-mysql/mysql/:/var/lib/mysql/"
+      # container first start init-sql(`.sh`, `.sql` and `.sql.gz`).
+      - "./mysql/:/docker-entrypoint-initdb.d/"
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: nacos_v132
+
+  # SEE: https://hub.docker.com/r/nacos/nacos-server
+  nacos:
+    image: nacos/nacos-server:1.3.2
+    container_name: nacos-server-image-1.3.2
+    restart: on-failure
+    ports:
+      - 18848:8848
+    volumes:
+      - "./nacos/custom.properties:/home/nacos/init.d/custom.properties"
+      - "./nacos/:/home/nacos/conf/"
+      - "./bin/docker-startup.sh:/home/nacos/bin/docker-startup.sh"
+      - "./bin/wait-for-it.sh:/home/nacos/bin/wait-for-it.sh"
+      - "D:/docker-volumes/nacos-1x-mysql/nacos/logs/:/home/nacos/logs/"
+      - "D:/docker-volumes/nacos-1x-mysql/nacos/data/:/home/nacos/data/"
+    depends_on:
+      - mysql
+    entrypoint:
+      - /home/nacos/bin/wait-for-it.sh
+    command: ["mysql:3306", "--", "sh", "/home/nacos/bin/docker-startup.sh"]
+    environment:
+      MODE: standalone
+      PREFER_HOST_MODE: ip
+      NACOS_APPLICATION_PORT: 8848
+#      NACOS_SERVER_IP: 0.0.0.0
+      SPRING_DATASOURCE_PLATFORM: mysql
+      MYSQL_SERVICE_HOST: mysql
+#      container-port(3306) 而不是 host-port(13306)
+      MYSQL_SERVICE_PORT: 3306
+      MYSQL_SERVICE_DB_NAME: nacos_v132
+      MYSQL_SERVICE_USER: root
+      MYSQL_SERVICE_PASSWORD: 123456
+      MYSQL_DATABASE_NUM: 1
+      MYSQL_SERVICE_DB_PARAM: characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useUnicode=true&useSSL=false&serverTimezone=UTC

@@ -1,0 +1,13 @@
+### https://nacos.io/zh-cn/docs/open-api.html
+
+### 创建命名空间 https://nacos.io/zh-cn/docs/open-api.html#3.2
+POST http://{{nacos-host}}/nacos/v1/console/namespaces
+Content-Type: application/x-www-form-urlencoded
+
+customNamespaceId=test-api
+&namespaceName=test-api
+&namespaceDesc=test-api-desc
+
+
+###
+
