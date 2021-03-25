@@ -1,0 +1,2 @@
+# SEE: https://docs.docker.com/compose/startup-order/
+# - `dockerize` https://github.com/jwilder/dockerize
