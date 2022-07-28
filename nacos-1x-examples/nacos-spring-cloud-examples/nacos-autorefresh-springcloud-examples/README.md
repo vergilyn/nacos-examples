@@ -4,12 +4,12 @@
 1) 依赖`spring-cloud-alibaba-nacos-config`  
 2) 未使用`@RefreshScope`  
 
-| bean      | auto-refresh   |
-| --------   | -----  |
-| RedisConnectionFactory| false |
-| NacosCustomProperties| true |
-| RedisProperties | true |
-| Environment | true |
+| bean                   | auto-refresh |
+|:-----------------------|:-------------|
+| RedisConnectionFactory | false        |
+| NacosCustomProperties  | true         |
+| RedisProperties        | true         |
+| Environment            | true         |
 
 ## source
 spring-boot启动时`SpringApplication.run(class, args)`：  
@@ -211,7 +211,7 @@ public class ConfigurationPropertiesRebinder
 -> org.springframework.cloud.context.refresh.ContextRefresher#refresh()
 
 ## 对于`ConfigurationProperties`，refresh时一般不会创建new-bean，而是对existing-bean重新执行init-bean
-`ConfigurationPropertiesRebinder#rebind()`时重新执行BeanPostProcessor实在existing-bean上执行，一般不会返回new-bean。
+`ConfigurationPropertiesRebinder#rebind()`时重新执行BeanPostProcessor是在existing-bean上执行，一般不会返回new-bean。
 ```text
 0 = {ApplicationContextAwareProcessor@8660} 
 1 = {WebApplicationContextServletContextAwareProcessor@8681} 

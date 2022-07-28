@@ -1,0 +1,20 @@
+### [Nacos Open API 指南](https://nacos.io/zh-cn/docs/open-api.html)
+### 其实不够详细，详细的可以参考 nacos-admin 的请求。
+
+### 创建 namespace
+## <https://nacos.io/zh-cn/docs/open-api.html#3.2>
+POST http://127.0.0.1:28848/nacos/v1/console/namespaces
+Content-Type: application/x-www-form-urlencoded
+
+customNamespaceId=autorefresh-spring-boot
+&namespaceName=autorefresh-spring-boot
+&namespaceDesc=测试nacos在spring-boot基础项目中的自动刷新配置
+
+
+
+### 创建 configs
+## https://nacos.io/zh-cn/docs/open-api.html#1.3
+POST http://127.0.0.1:28848/nacos/v1/cs/configs
+Content-Type: application/x-www-form-urlencoded
+
+dataId=boot-autorefresh.properties&group=BOOT_GROUP&content=vergilyn.custom.name%3Dvergilyn%0D%0Avergilyn.custom.database%3D6%0D%0Aspring.redis.database%3D%24%7Bvergilyn.custom.database%7D&config_tags=&type=properties&appName=&tenant=&namespaceId=

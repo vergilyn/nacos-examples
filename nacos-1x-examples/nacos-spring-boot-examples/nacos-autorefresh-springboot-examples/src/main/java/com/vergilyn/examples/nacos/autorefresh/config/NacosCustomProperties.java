@@ -1,14 +1,12 @@
 package com.vergilyn.examples.nacos.autorefresh.config;
 
 import com.alibaba.nacos.api.config.annotation.NacosConfigurationProperties;
-
 import lombok.Data;
 
-import static com.vergilyn.examples.nacos.autorefresh.SpringbootAutoRefreshApplication.DATA_ID;
-import static com.vergilyn.examples.nacos.autorefresh.SpringbootAutoRefreshApplication.GROUP_ID;
+import static com.vergilyn.examples.nacos.autorefresh.constants.Constants.*;
 
 @Data
-@NacosConfigurationProperties(prefix = "vergilyn.custom", dataId = DATA_ID, groupId = GROUP_ID, autoRefreshed = true)
+@NacosConfigurationProperties(prefix = PREFIX_VERGILYN, dataId = DATA_ID, groupId = GROUP_ID, autoRefreshed = true)
 public class NacosCustomProperties {
 
 	private String name;

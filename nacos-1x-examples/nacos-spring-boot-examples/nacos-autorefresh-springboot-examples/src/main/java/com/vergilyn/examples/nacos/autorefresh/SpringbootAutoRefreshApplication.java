@@ -2,16 +2,17 @@ package com.vergilyn.examples.nacos.autorefresh;
 
 import com.alibaba.nacos.spring.context.annotation.config.NacosPropertySource;
 import com.vergilyn.examples.nacos.autorefresh.config.NacosCustomProperties;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
-import static com.vergilyn.examples.nacos.autorefresh.SpringbootAutoRefreshApplication.DATA_ID;
-import static com.vergilyn.examples.nacos.autorefresh.SpringbootAutoRefreshApplication.GROUP_ID;
+import static com.vergilyn.examples.nacos.autorefresh.constants.Constants.DATA_ID;
+import static com.vergilyn.examples.nacos.autorefresh.constants.Constants.GROUP_ID;
+
 
 /**
  * Document: https://nacos.io/zh-cn/docs/quick-start-spring-boot.html
@@ -29,14 +30,6 @@ import static com.vergilyn.examples.nacos.autorefresh.SpringbootAutoRefreshAppli
 @SpringBootApplication
 @NacosPropertySource(dataId = DATA_ID, groupId = GROUP_ID, autoRefreshed = true)
 public class SpringbootAutoRefreshApplication {
-	/**
-	 * `nacos-spring-context:1.0.0`默认从data-id解析config-type
-	 *
-	 * @see com.alibaba.nacos.spring.context.annotation.NacosBeanDefinitionRegistrar
-	 * @see com.alibaba.nacos.spring.context.annotation.EnableNacos
-	 */
-	public static final String DATA_ID = "boot-autorefresh.properties";
-	public static final String GROUP_ID = "BOOT_GROUP";
 
 	@Bean
 	public StringRedisTemplate stringRedisTemplate(RedisConnectionFactory factory) {
@@ -53,6 +46,10 @@ public class SpringbootAutoRefreshApplication {
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringbootAutoRefreshApplication.class, args);
+		SpringApplication application = new SpringApplication(SpringbootAutoRefreshApplication.class);
+
+		ConfigurableApplicationContext applicationContext = application.run(args);
+
+		System.out.println(application);
 	}
 }

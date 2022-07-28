@@ -1,15 +1,14 @@
 package com.vergilyn.examples.nacos.config;
 
-import java.util.concurrent.Executor;
-import java.util.concurrent.TimeUnit;
-
 import com.alibaba.nacos.api.config.ConfigType;
 import com.alibaba.nacos.api.config.listener.Listener;
-
 import lombok.SneakyThrows;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
+
+import java.util.concurrent.Executor;
+import java.util.concurrent.TimeUnit;
 
 /**
  *
@@ -23,8 +22,8 @@ public class ConfigListenerTests extends ConfigServiceTests {
 	private final String _dataId = "api-config-listener." + _type;
 
 	@SneakyThrows
-	@BeforeEach
-	public void beforeEach(){
+	@BeforeAll
+	public void BeforeAll(){
 		_defaultConfigService.publishConfig(_dataId, DEFAULT_GROUP, "index=1");
 	}
 

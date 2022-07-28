@@ -3,7 +3,6 @@ package com.vergilyn.examples.nacos.autorefresh.controller;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.nacos.api.config.annotation.NacosValue;
 import com.vergilyn.examples.nacos.autorefresh.config.NacosCustomProperties;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.data.redis.RedisProperties;
 import org.springframework.core.env.Environment;
@@ -41,7 +40,7 @@ public class ConfigController {
         int rdb = redisProperties.getDatabase();
         String edb = environment.getProperty("spring.redis.database");
 
-        return String.format("fdb: %d, rdb: %d, edb: %s, name: %s, nacos-properties: %s",
+        return String.format("connection-factory-db: %d, redis-properties-db: %d, environment-db: %s, bean-property-name: %s, nacos-properties: %s",
                 fdb, rdb, edb, name, JSON.toJSONString(nacosProperties));
     }
 }

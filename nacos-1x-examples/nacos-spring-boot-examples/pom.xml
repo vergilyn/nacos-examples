@@ -18,7 +18,7 @@
     </modules>
 
     <properties>
-        <nacos-spring-boot.version>0.2.7</nacos-spring-boot.version>
+        <nacos-spring-boot.version>0.2.10</nacos-spring-boot.version>
     </properties>
 
     <dependencies>

@@ -8,10 +8,9 @@ import com.alibaba.nacos.api.exception.NacosException;
 import com.alibaba.nacos.common.http.HttpRestResult;
 import com.alibaba.nacos.common.http.param.Query;
 import com.vergilyn.examples.nacos.AbstractNacos2Tests;
-
 import lombok.SneakyThrows;
 import org.apache.commons.text.StringEscapeUtils;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -29,8 +28,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class ConfigServiceTests extends AbstractNacos2Tests {
 
-	@BeforeEach
-	public void beforeEach() throws NacosException {
+	@BeforeAll
+	public void beforeAll() throws NacosException {
 	}
 
 	@SneakyThrows
