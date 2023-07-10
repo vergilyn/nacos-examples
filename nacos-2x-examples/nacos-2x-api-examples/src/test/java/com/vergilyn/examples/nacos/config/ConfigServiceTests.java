@@ -7,7 +7,7 @@ import com.alibaba.nacos.api.config.ConfigType;
 import com.alibaba.nacos.api.exception.NacosException;
 import com.alibaba.nacos.common.http.HttpRestResult;
 import com.alibaba.nacos.common.http.param.Query;
-import com.vergilyn.examples.nacos.AbstractNacos2Tests;
+import com.vergilyn.examples.nacos.AbstractNacos2xTests;
 import lombok.SneakyThrows;
 import org.apache.commons.text.StringEscapeUtils;
 import org.junit.jupiter.api.BeforeAll;
@@ -26,7 +26,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * @since 2021-03-24
  */
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class ConfigServiceTests extends AbstractNacos2Tests {
+public class ConfigServiceTests extends AbstractNacos2xTests {
 
 	@BeforeAll
 	public void beforeAll() throws NacosException {

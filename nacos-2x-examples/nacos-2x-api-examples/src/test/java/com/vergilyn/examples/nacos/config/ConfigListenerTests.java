@@ -24,7 +24,7 @@ public class ConfigListenerTests extends ConfigServiceTests {
 	@SneakyThrows
 	@BeforeAll
 	public void BeforeAll(){
-		_defaultConfigService.publishConfig(_dataId, DEFAULT_GROUP, "index=1");
+		_configService.publishConfig(_dataId, DEFAULT_GROUP, "index=1");
 	}
 
 	/**
@@ -37,7 +37,7 @@ public class ConfigListenerTests extends ConfigServiceTests {
 		 * invoke listener:
 		 *   -> {@link com.alibaba.nacos.client.config.impl.ClientWorker }
 		 */
-		_defaultConfigService.addListener(_dataId, DEFAULT_GROUP, new Listener() {
+		_configService.addListener(_dataId, DEFAULT_GROUP, new Listener() {
 			@Override
 			public Executor getExecutor() {
 				return null;
@@ -53,7 +53,7 @@ public class ConfigListenerTests extends ConfigServiceTests {
 			println("update-config before...");
 			try {
 				TimeUnit.SECONDS.sleep(10);
-				_defaultConfigService.publishConfig(_dataId, DEFAULT_GROUP, "index=2");
+				_configService.publishConfig(_dataId, DEFAULT_GROUP, "index=2");
 			} catch (Exception e) {
 			}
 

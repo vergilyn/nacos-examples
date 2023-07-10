@@ -1,10 +1,5 @@
 package com.vergilyn.examples.nacos;
 
-import java.time.LocalTime;
-import java.util.Map;
-import java.util.Properties;
-import java.util.concurrent.Semaphore;
-
 import com.alibaba.nacos.api.NacosFactory;
 import com.alibaba.nacos.api.PropertyKeyConst;
 import com.alibaba.nacos.api.common.Constants;
@@ -19,9 +14,13 @@ import com.alibaba.nacos.common.http.param.Header;
 import com.google.common.collect.Maps;
 import com.sun.istack.internal.NotNull;
 import com.sun.istack.internal.Nullable;
-
 import lombok.SneakyThrows;
 import org.apache.commons.lang3.StringUtils;
+
+import java.time.LocalTime;
+import java.util.Map;
+import java.util.Properties;
+import java.util.concurrent.Semaphore;
 
 /**
  *
@@ -32,21 +31,21 @@ import org.apache.commons.lang3.StringUtils;
  * @see com.alibaba.nacos.api.common.Constants
  * @see com.alibaba.nacos.common.utils.JacksonUtils
  */
-public abstract class AbstractNacos2Tests {
+public abstract class AbstractNacos2xTests {
 
-	protected static final String SERVER_ADDR = "127.0.0.1:28848";
+	protected static final String SERVER_ADDR = "127.0.0.1:8848";
 	protected static final String DEFAULT_NAMESPACE_ID = "";
 
 	protected static final String NACOS_API_HOST = "http://" + SERVER_ADDR;
 	protected static final String DEFAULT_GROUP = Constants.DEFAULT_GROUP;
-	protected final ConfigService _defaultConfigService;
-	protected final NamingService _defaultNamingService;
+	protected final ConfigService _configService;
+	protected final NamingService _namingService;
 	protected final NacosRestTemplate _nacosRestTemplate;
 
 	@SneakyThrows
-	public AbstractNacos2Tests() {
-		this._defaultConfigService = createConfigService();
-		this._defaultNamingService = createNamingService();
+	public AbstractNacos2xTests() {
+		this._configService = createConfigService();
+		this._namingService = createNamingService();
 		_nacosRestTemplate = ConfigHttpClientManager.getInstance().getNacosRestTemplate();;
 	}
 
